@@ -1,10 +1,10 @@
 use std::io; //import io -  input/output from std - the standard library
 
 fn main() {
+    let mut guess = String::new(); // create a mutable variable called guess that is a new empty string
+    
     println!("GUESS DA NUMBER!!!"); //println! - print a string to the console
     println!("What's your guess?");
-
-    let mut guess = String::new(); // create a mutable variable called guess that is a new empty string
 
     io::stdin() // read input from the standard input (console)
         .read_line(&mut guess) // read a line from the standard input and store it in the guess variable
