@@ -11,7 +11,7 @@ fn main() {
     
     println!("GUESS DA NUMBER!!!"); //println! - print a string to the console
     
-    loop {
+    loop { //run the loop until the guess is correct
         println!("{}", "What's your guess?".blue());
         
         let mut human_guess = String::new(); // create a mutable variable called guess that is a new empty string
@@ -22,7 +22,7 @@ fn main() {
             .expect("That's not a valid guess you wanker!"); // if the read_line fails, print the error message
         let human_guess: u32 = human_guess.trim().parse().expect("That's not a valid guess you wanker!"); // parse the human_guess variable to a u32 number
 
-        match human_guess.cmp(&machine_guess) {
+        match human_guess.cmp(&machine_guess) { // match the human_guess variable to the machine_guess variable
             Ordering::Less => println!("{}", "your guess is too low!".truecolor(255, 165, 0)),
             Ordering::Greater => println!("{}", "your guess is too high!".yellow()),
             Ordering::Equal => {
@@ -30,6 +30,6 @@ fn main() {
                 println!("You guessed it in {} tries.", attempts);
                 break; // exit the loop when the guess is correct
             }
-        } // match the human_guess variable to the machine_guess variable
-    }
+        } 
+    } 
 }
