@@ -7,12 +7,15 @@ fn main() {
     let machine_guess = rand::thread_rng()
         .gen_range(1..=100); // generate a random number between 1 and 100
     
+    let mut attempts = 0;
+    
     println!("GUESS DA NUMBER!!!"); //println! - print a string to the console
     
     loop {
-        println!("What's your guess?");
+        println!("{}", "What's your guess?".blue());
         
         let mut human_guess = String::new(); // create a mutable variable called guess that is a new empty string
+        attempts += 1;
         
         io::stdin() // read input from the standard input (console)
             .read_line(&mut human_guess) // read a line from the standard input and store it in the guess variable
@@ -23,7 +26,8 @@ fn main() {
             Ordering::Less => println!("{}", "your guess is too low!".truecolor(255, 165, 0)),
             Ordering::Greater => println!("{}", "your guess is too high!".yellow()),
             Ordering::Equal => {
-                println!("you win!");
+                println!("{}", "you win!".green());
+                println!("You guessed it in {} tries.", attempts);
                 break; // exit the loop when the guess is correct
             }
         } // match the human_guess variable to the machine_guess variable
