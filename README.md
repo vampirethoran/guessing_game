@@ -30,3 +30,7 @@ cargo --version
 ```
 If you see a version numbver, you're good to go. 
 
+Run the project:
+```bash
+cargo run
+```
